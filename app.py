@@ -9,7 +9,8 @@ from flask_bcrypt import Bcrypt
 
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql+psycopg2://postgres:FPadilla@localhost:5432/bd'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://fuwhswpjqsftdl:cf18120060e70a0755bd05d78db10bc41cb9e524ee537beed4c4c24b92041fbb@ec2-54-157-113-118.compute-1.amazonaws.com:5432/df167mdf2af0vn'
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql+psycopg2://postgres:FPadilla@localhost:5432/bd'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
