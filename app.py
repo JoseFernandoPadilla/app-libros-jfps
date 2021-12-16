@@ -9,7 +9,7 @@ from flask_bcrypt import Bcrypt
 
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://rfuosigisuxqlv:fc97287cbe2dd2915515365dd1fa04c08ec8d67934a966143465c65d08376cda@ec2-52-45-238-24.compute-1.amazonaws.com:5432/dcj5ddr8pkehln'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://wxkwwmytwwltmx:28db7632f1842895ebcdc9fb01541dc337533cf538468bce536b9bdc554fdf37@ec2-52-201-106-191.compute-1.amazonaws.com:5432/d9042op94kprqs'
 #app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql+psycopg2://postgres:FPadilla@localhost:5432/bd'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
@@ -125,7 +125,11 @@ def login():
     print(consulta_usuarios.email)
     bcrypt.check_password_hash(consulta_usuarios.password,password)
 
-    return "Hizo click en botoin login"
+    return render_template("menu.html")
+
+@app.route("/menu")
+def menu():
+    return render_template("menu.html")
 
 @app.route("/registrar")
 def registrar():
