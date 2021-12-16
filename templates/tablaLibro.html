@@ -1,0 +1,61 @@
+{% extends "layout.html" %} {% block content %}
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Cabecera fija</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header id="main-header">
+
+        <a id="logo-header" href="#">
+            <span class="site-name">FP Libreria</span>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="/ ">Index</a></li>
+                <li><a href="/libro">Libros</a></li>
+            </ul>
+        </nav>
+        <!-- / nav -->
+
+    </header>
+    <!-- / #main-header -->
+</body>
+
+</html>
+<section class="hero is-fullheight">
+    <center>
+        <table border="2px">
+            <tr>
+                <td>Nombre</td>
+                <td>Fecha de Publicación</td>
+                <td>Numero de páginas</td>
+                <td>Formato</td>
+                <td>Volumen</td>
+            </tr>
+            {% for libros in libro %}
+            <tr>
+                <td>{{libros.titulo_libro}}</td>
+                <td>{{libros.fecha_publicacion}}</td>
+                <td>{{libros.numero_paginas}}</td>
+                <td>{{libros.formato}}</td>
+                <td>{{libros.volumen}}</td>
+                <td><button onclick="hizoClick()"><a href="/eliminarLibro/{{libros.id_libro}}">Eliminar</a></button></td>
+                <td><button><a href="/editarLibro/{{libros.id_libro}}">Editar</a></button></td>
+                <td><button><a href="/agregar_favorito/{{libros.id_libro}}">Agregar Favorito</a></button></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </center>
+</section>
+<script>
+    function hizoClick() {
+        alert("Libro Eliminado");
+    }
+</script>
+{% endblock %}

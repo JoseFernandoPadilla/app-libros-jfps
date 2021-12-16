@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Libreria</title>
+
+<head>
+    {% block head %}
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="/static/css/style.css" />
+    <title>
+        {% block title %} {% endblock %}
+    </title>
+    {% endblock %}
+</head>
+
+<body>
+    <div id="content">
+
+        {% block content %} {% endblock %}
+    </div>
+
+    <div id="footer" style="background-color: #070808;">
+        <div class="container-fluid" style="background-color: #020303; color: #bbdefb;">
+            {% block footer %} &copy; Copyright 2021 by <a href="#">Padilla Solis Jose Fernando</a> {% endblock %}
+        </div>
+    </div>
+
+</body>
+
+</html>

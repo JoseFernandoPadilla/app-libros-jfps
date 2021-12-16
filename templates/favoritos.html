@@ -1,0 +1,58 @@
+{% extends "layout.html" %} {% block content %}
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Cabecera fija</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header id="main-header">
+
+        <a id="logo-header" href="#">
+            <span class="site-name">FP Libreria</span>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="/ ">Index</a></li>
+                <li><a href="/editorial ">Editorial</a></li>
+                </li>
+            </ul>
+        </nav>
+        <!-- / nav -->
+
+    </header>
+    <!-- / #main-header -->
+</body>
+
+</html>
+<section class="hero is-fullheight">
+    <center>
+        <table border="2px">
+            <tr>
+                <td>id</td>
+                <td>libro</td>
+                <td>usuario</td>
+            </tr>
+            {% for favorito in favoritos%}
+            <tr>
+                <td scope="row">{{favorito.id_lista_favoritos}}</td>
+                {% for libro in libros %} {% if favorito.id_libro == libro.id_libro %}
+                <td>{{libro.titulo_libro}}</td>
+                {% endif %} {% endfor %} {% for usuario in usuarios %} {% if favorito.id_lista_favoritos == usuario.id %}
+                <td>{{usuario.email}}</td>
+                {% endif %} {% endfor %}
+            </tr>
+            {% endfor %}
+        </table>
+    </center>
+</section>
+<script>
+    function hizoClick() {
+        alert("Editorial Eliminado");
+    }
+</script>
+{% endblock %}

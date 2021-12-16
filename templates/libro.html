@@ -1,0 +1,129 @@
+{% extends "layout.html" %} {% block content %}
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Cabecera fija</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header id="main-header">
+
+        <a id="logo-header" href="#">
+            <span class="site-name">FP Libreria</span>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="/ ">Index</a></li>
+                <li><a href="/tablaLibro">Tabla Libro</a></li>
+            </ul>
+        </nav>
+        <!-- / nav -->
+
+    </header>
+    <!-- / #main-header -->
+</body>
+
+</html>
+<section class="hero is-primary is-fullheight">
+    <div class="hero-body">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-5-5tablet is-4-desktop is-3-widescreen">
+                    <!-- formulario -->
+                    <form action="/registrarLibro" method="post" class="box">
+                        <div class="field">
+                            <label for="" class="label">Titulo del Libro</label>
+                            <div class="control has.icons-left">
+                                <input type="text" name="titulo_libro" class="input">
+                                <span class="icon is-small is-left">
+                                <i class="fa fa-envelope"></i>
+                            </span>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label for="" class="label">Fecha de Publicacion</label>
+                            <div class="control has-icons-left">
+                                <input type="date" name="fecha_publicacion" class="input">
+                                <span class="icon is-small is-left">
+                                <i class="fa fa-look"></i>
+                            </span>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label for="" class="label">Numero de páginas</label>
+                            <div class="control has-icons-left">
+                                <input type="text" name="numero_paginas" class="input">
+                                <span class="icon is-small is-left">
+                                <i class="fa fa-look"></i>
+                            </span>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label for="" class="label">Formato</label>
+                            <div class="control has-icons-left">
+                                <input type="text" name="formato" class="input">
+                                <span class="icon is-small is-left">
+                                <i class="fa fa-look"></i>
+                            </span>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label for="" class="label">Volumen</label>
+                            <div class="control has-icons-left">
+                                <input type="text" name="volumen" class="input">
+                                <span class="icon is-small is-left">
+                                <i class="fa fa-look"></i>
+                            </span>
+                            </div>
+                        </div>
+                        <!-------------------------------------------------------------------->
+                        <div class="field">
+                            <select name="editorial">
+                                {% for editorial in consulta_editorial %}
+                                    <option value="{{editorial.id_editorial}}">
+                                        {{editorial.nombre_editorial}}
+                                    </option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <!-------------------------------------------------------------------->
+                        <div class="field">
+                            <select name="genero">
+                                {% for genero in consulta_genero %}
+                                <option value="{{genero.id_genero}}">{{genero.nombre_genero}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="flied">
+                            <select name="autor">
+                                {% for autor in consulta_autor %}
+                                <option value="{{autor.id_autor}}">{{autor.nombre_autor}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="field">
+                            <button class="button is-success" onclick="hizoClick()">
+                                Registrar Libro
+                            </button>
+                        </div>
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<script>
+    function hizoClick() {
+        alert("Libro Creado");
+    }
+</script>
+{% endblock %}
