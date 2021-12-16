@@ -4,6 +4,7 @@ from flask_bcrypt import Bcrypt
 #from sqlalchemy.orm import query
 #from werkzeug.utils import redirect
 #https://github.com/JoseFernandoPadilla/app-libros-jfps.git
+#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
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql+psycopg2://postgres:FPadilla@localhost:5432/bd'
